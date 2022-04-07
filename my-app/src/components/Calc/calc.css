@@ -65,6 +65,7 @@ button {
 
 .row:first-of-type > button {
   font-size: 19px;
+  background-color: #606263;
 }
 
 .row > button:first-child {
@@ -74,6 +75,7 @@ button {
 .row > button:last-child {
   border-right: none;
   font-size: 28px;
+  background-color: #FF9F0C; 
 }
 
 #field {
@@ -88,12 +90,4 @@ button {
 
 #big {
   width: 221%;
-}
-
-.orange {
-  background-color: #FF9F0C;
-}
-
-.darkgrey {
-  background-color: #606263;
 }

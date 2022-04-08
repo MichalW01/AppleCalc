@@ -1,5 +1,4 @@
 import Calc from './components/Calc/calc';
-
 import './App.css';
 
 function App() {

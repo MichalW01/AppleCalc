@@ -13,11 +13,19 @@ function Calc() {
 
 
   useEffect(() => {
-    console.log(typeOfCalc, screen, firstValue, secondValue);
+    console.log(
+      'typeOfCalc: ', typeOfCalc, 
+      'screen: ', screen, 
+      'firstValue: ', firstValue, 
+      'secondValue: ', secondValue
+      );
   }, [typeOfCalc, screen, secondValue, firstValue]);
 
   const reset = () => {
    setScreen(0);
+   setFirstValue(0);
+   setSecondValue(0);
+   setTypeOfCalc('');
   }
 
   const getPercent = () => {
@@ -93,26 +101,39 @@ function Calc() {
     handleDigit(0);
   }
 
+  const handleTypeOfCalc = (TYPE) => { 
+    if (typeOfCalc) {
+      const newScreenValue = calculateResult();
+      setFirstValue(newScreenValue);
+      setSecondValue(0);
+    }
+    
+    setTypeOfCalc(TYPE);
+  }
+
   const calculateResult = () => {
     const firstValueNum = Number(firstValue);
     const secondValueNum = Number(secondValue);
+    let newScreenValue;
 
     if (typeOfCalc === ADD) {
-      setScreen(firstValueNum + secondValueNum);
+      newScreenValue = firstValueNum + secondValueNum;
     } 
     else if (typeOfCalc === SUBTRACT) {
-      setScreen(firstValueNum - secondValueNum);
+      newScreenValue = firstValueNum - secondValueNum;
     } 
     else if (typeOfCalc === MULTIPLY) {
-      setScreen(firstValueNum * secondValueNum);
+      newScreenValue = firstValueNum * secondValueNum;
     } 
     else if (typeOfCalc === DIVIDE) {
-      setScreen(firstValueNum / secondValueNum);
+      newScreenValue = firstValueNum / secondValueNum;
     } 
 
+    setScreen(newScreenValue);
     setTypeOfCalc(''); 
-  }
 
+    return newScreenValue;
+  }
 
   return (
     <div id="main">
@@ -127,25 +148,25 @@ function Calc() {
           <button onClick={reset}>AC</button>
           <button onClick={negate}>+/-</button>
           <button onClick={getPercent}>%</button>
-          <button onClick={() => setTypeOfCalc(DIVIDE)}>&#247;</button>
+          <button onClick={() => handleTypeOfCalc(DIVIDE)}>&#247;</button>
         </div>
         <div className="row">
           <button onClick={seven}>7</button>
           <button onClick={eight}>8</button>
           <button onClick={nine}>9</button>
-          <button onClick={() => setTypeOfCalc(MULTIPLY)}>&#215;</button>
+          <button onClick={() => handleTypeOfCalc(MULTIPLY)}>&#215;</button>
         </div>
         <div className="row">
           <button onClick={four}>4</button>
           <button onClick={five}>5</button>
           <button onClick={six}>6</button>
-          <button onClick={() => setTypeOfCalc(SUBTRACT)}>&#8722;</button>
+          <button onClick={() => handleTypeOfCalc(SUBTRACT)}>&#8722;</button>
         </div>
         <div className="row">
           <button onClick={one}>1</button>
           <button onClick={two}>2</button>
           <button onClick={three}>3</button>
-          <button onClick={() => setTypeOfCalc(ADD)}>+</button>
+          <button onClick={() => handleTypeOfCalc(ADD)}>+</button>
         </div>
         <div className="row">
           <button id="big" onClick={zero}>0</button>

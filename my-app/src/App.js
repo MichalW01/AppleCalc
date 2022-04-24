@@ -1,6 +1,5 @@
 import Calc from './components/Calc/calc';
-import Loop from './components/Loop/loop';
-import Footer from './components/Footer/footer';
+import Loop from './components/Loop/loop';   
 import './App.css';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
       <header className="App-header">
         <Loop />
         {/* <Calc /> */}
-        {/* <Footer /> */}
       </header>
     </div>
   );

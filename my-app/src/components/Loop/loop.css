@@ -1,0 +1,73 @@
+.Loop span {
+  background: transparent;
+  color: black;
+  border-radius: none;
+  display: inline-block;
+}
+
+.Loop span span {
+  height: inherit;
+  width: inherit;
+  border-radius: inherit;
+  display: inline-block;
+}
+
+.Loop .one {
+  background-color: rgb(142, 140, 151);
+}
+
+.Loop .two {
+  background-color: red;
+}
+
+.Loop .three {
+  background-color: springgreen;
+}
+
+.Loop .four {
+  background-color: blue;
+}
+
+.Loop .five{
+  background-color: black;
+}
+
+.Loop :nth-child(odd) {
+  transform: scale(1.4) translate(5%, -10%);
+}
+
+.Loop .shape1 {
+  height: 5vw;
+  width: 5vw;
+  border-radius: 90%;
+}
+
+.Loop .shape2 {
+  height: 1vw;
+  width: 5vw;
+  border: 1px solid red;
+}
+.Loop .shape3 span {
+  transform: scale(1) translate(0%);
+}
+
+.Loop .shape3 {
+  height: 4.5vw;
+  width: 4.5vw;
+}
+
+.Loop .shape4 {
+  height: 100vh;
+  width: 1vw;
+  transform: scale(1) translate(0%);
+}
+.Loop .shape4 span {
+  transform: scale(1) translate(0%);
+}
+
+.Loop .shape5 {
+  border-radius: 25%;
+  height: 5vw;
+  width: 5vw;
+  transform: rotate(30deg);
+}
